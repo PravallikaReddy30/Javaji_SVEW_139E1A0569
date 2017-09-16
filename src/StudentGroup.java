@@ -105,7 +105,16 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		}
 		else {
-			students[index] = student;
+			Student[] studentsArr = new Student[students.length+1];
+			for (int i=0; i< index; i++) {
+				studentsArr[i] = students[i];
+			}
+			studentsArr[index] = student;
+			
+			for (int i=index; i< students.length; i++) {
+				studentsArr[i+1] = students[i];
+			}
+			this.students = studentsArr;
 		}		
 	}
 
