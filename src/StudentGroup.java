@@ -181,7 +181,7 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		}
 		else {
-			Student[] studentsArr = new Student[index-1];
+			Student[] studentsArr = new Student[index+1];
 			for (int i = 0; i < index+1; i++) {
 				studentsArr[i] = students[i];
 			}
