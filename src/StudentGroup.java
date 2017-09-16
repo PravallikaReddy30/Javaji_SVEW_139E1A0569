@@ -147,14 +147,12 @@ public class StudentGroup implements StudentArrayOperation {
 		}
 		else {
 			int studentFoundIndex = -1;
-			for (int i=0; i<students.length; i++) {
+			for (int i = 0; i < students.length; i++) {
 				Student currStudent = students[i];
-				if (currStudent!=null) {
-					if (currStudent.getId() == student.getId()) {
-						students[i] = null;
-						studentFoundIndex = i;
-						break;
-					}
+				if (currStudent.getId() == student.getId()) {
+					students[i] = null;
+					studentFoundIndex = i;
+					break;
 				}
 			}
 			
@@ -200,16 +198,12 @@ public class StudentGroup implements StudentArrayOperation {
 		else {
 			int studentFoundIndex = -1;
 
-			for (int i=0; i<students.length; i++) {
+			for (int i = 0; i < students.length; i++) {
 				Student currStudent = students[i];
-				
-					if (currStudent!=null) {
-						if (currStudent.getId() == student.getId()) { 
-							studentFoundIndex = i; // student exists in the array
-							break;
-						}
-					}
-				
+				if (currStudent.getId() == student.getId()) {
+					studentFoundIndex = i; // student exists in the array
+					break;
+				}
 			}
 			
 			if (studentFoundIndex != -1) {
@@ -250,13 +244,9 @@ public class StudentGroup implements StudentArrayOperation {
 
 			for (int i = 0; i < students.length; i++) {
 				Student currStudent = students[i];
-
-				if (currStudent != null) {
-					if (currStudent.getId() == student.getId()) {
-						studentFoundIndex = i; // student exists in the array
-					}
+				if (currStudent.getId() == student.getId()) {
+					studentFoundIndex = i; // student exists in the array
 				}
-
 			}
 			
 			int newlength = students.length-studentFoundIndex;
@@ -273,8 +263,9 @@ public class StudentGroup implements StudentArrayOperation {
 		// Add your implementation here
 		for (int i = 0; i < students.length - 1; i++) {
 			for (int j = 0; j < students.length - i - 1; j++) {
-				if (students[j].compareTo(students[j + 1]) > 0)
+				if (students[j].compareTo(students[j + 1]) > 0) {
 					swap(j, j + 1);
+				}
 			}
 		}
 	}
@@ -335,24 +326,21 @@ public class StudentGroup implements StudentArrayOperation {
 		// Add your implementation here
 		if (student == null) {
 			throw new IllegalArgumentException();
-		}
-		else {
+		} else {
 			boolean studentFound = false;
 
-			for (int i=0; i<students.length; i++) {
+			for (int i = 0; i < students.length; i++) {
 				Student currStudent = students[i];
-				
+
 				if (studentFound == true) {
 					return currStudent;
-				}
-				else {
-					if (currStudent!=null) {
-						if (currStudent.getId() == student.getId()) { 
-							studentFound = true; // student exists in the array
-						}
+				} else {
+					if (currStudent.getId() == student.getId()) {
+						studentFound = true; // student exists in the array
 					}
+
 				}
-				
+
 			}
 		}
 		return null;
