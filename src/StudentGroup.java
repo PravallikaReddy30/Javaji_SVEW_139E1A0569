@@ -229,9 +229,12 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		}
 		else {
-			for (int i=0; i<index; i++) {
-				students[i] = null;
+			int newlength = students.length-index;
+			Student[] studentsArr = new Student[newlength];
+			for (int i = 0; i < studentsArr.length; i++) {
+				studentsArr[i] = students[i+index];
 			}
+			this.students = studentsArr;
 		}
 	}
 
