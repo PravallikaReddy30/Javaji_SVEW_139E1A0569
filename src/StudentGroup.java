@@ -197,23 +197,30 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		}
 		else {
-			boolean studentFound = false;
+			int studentFoundIndex = -1;
 
 			for (int i=0; i<students.length; i++) {
 				Student currStudent = students[i];
 				
-				if (studentFound == true) {
-					students[i] = null;
-				}
-				else {
 					if (currStudent!=null) {
 						if (currStudent.getId() == student.getId()) { 
-							studentFound = true; // student exists in the array
+							studentFoundIndex = i; // student exists in the array
+							break;
 						}
 					}
-				}
 				
 			}
+			
+			if (studentFoundIndex != -1) {
+				Student[] studentsArr = new Student[studentFoundIndex+1];
+				for (int i = 0; i < studentFoundIndex+1; i++) {
+					studentsArr[i] = students[i];
+				}
+				this.students = studentsArr;
+			}
+
+			
+			
 		}
 	}
 
