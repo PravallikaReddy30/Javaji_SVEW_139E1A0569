@@ -72,12 +72,20 @@ public class Student implements Comparable {
 
 	@Override
 	public int hashCode() {
-		return super.hashCode();
+		//return super.hashCode();
+		return id;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		return super.equals(obj);
+		//return super.equals(obj);
+		Student student = (Student)obj;
+		if (student.getId() == this.id) {
+			return true;
+		} else {
+			return false;
+		}
+		
 	}
 	
 	

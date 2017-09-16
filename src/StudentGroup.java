@@ -216,6 +216,12 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void bubbleSort() {
 		// Add your implementation here
+		for (int i = 0; i < students.length - 1; i++) {
+			for (int j = 0; j < students.length - i - 1; j++) {
+				if (students[j].compareTo(students[j + 1]) > 0)
+					swap(j, j + 1);
+			}
+		}
 	}
 
 	@Override
@@ -258,5 +264,11 @@ public class StudentGroup implements StudentArrayOperation {
 	public Student getNextStudent(Student student) {
 		// Add your implementation here
 		return null;
+	}
+	
+	private void swap(int ind1, int ind2) {
+		Student student = students[ind1];
+		students[ind1] = students[ind2];
+		students[ind2] = student;
 	}
 }
