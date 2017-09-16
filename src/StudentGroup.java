@@ -125,7 +125,16 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		}
 		else {
-			students[index] = null;
+			
+			Student[] studentsArr = new Student[students.length+1];
+			for (int i=0; i< index; i++) {
+				studentsArr[i] = students[i];
+			}
+			for (int i=index+1; i< students.length; i++) {
+				studentsArr[i-1] = students[i];
+			}
+			this.students = studentsArr;
+			
 		}
 	}
 
@@ -136,19 +145,30 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		}
 		else {
-			boolean studentFound = false;
+			int studentFoundIndex = -1;
 			for (int i=0; i<students.length; i++) {
 				Student currStudent = students[i];
 				if (currStudent!=null) {
 					if (currStudent.getId() == student.getId()) {
 						students[i] = null;
-						studentFound = true;
+						studentFoundIndex = i;
 						break;
 					}
 				}
 			}
 			
-			if (studentFound == false) {
+			if (studentFoundIndex != -1) {
+				Student[] studentsArr = new Student[students.length + 1];
+				for (int i = 0; i < studentFoundIndex; i++) {
+					studentsArr[i] = students[i];
+				}
+				for (int i = studentFoundIndex + 1; i < students.length; i++) {
+					studentsArr[i - 1] = students[i];
+				}
+				this.students = studentsArr;
+			}
+
+			else {
 				throw new IllegalArgumentException("Student not exist");
 			}
 		}
@@ -161,9 +181,11 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		}
 		else {
-			for (int i=index+1; i<students.length; i++) {
-				students[i] = null;
+			Student[] studentsArr = new Student[index+1];
+			for (int i = 0; i < index+1; i++) {
+				studentsArr[i] = students[i];
 			}
+			this.students = studentsArr;
 		}
 		
 	}
