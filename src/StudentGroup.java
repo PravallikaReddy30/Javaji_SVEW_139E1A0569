@@ -258,9 +258,12 @@ public class StudentGroup implements StudentArrayOperation {
 
 			}
 			
-			for (int i=0; i<studentFoundIndex; i++) {
-				students[i] = null;
+			int newlength = students.length-studentFoundIndex;
+			Student[] studentsArr = new Student[newlength];
+			for (int i = 0; i < studentsArr.length; i++) {
+				studentsArr[i] = students[i+studentFoundIndex];
 			}
+			this.students = studentsArr;
 		}
 	}
 
