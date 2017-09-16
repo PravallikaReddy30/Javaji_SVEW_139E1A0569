@@ -70,7 +70,13 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		}
 		else {
-			students[0] = student;
+			//students[0] = student;
+			Student[] studentsArr = new Student[students.length+1];
+			studentsArr[0] = student;
+			for (int i=0; i< students.length; i++) {
+				studentsArr[i+1] = students[i];
+			}
+			this.students = studentsArr;
 		}
 	}
 
@@ -81,8 +87,14 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		}
 		else {
+			Student[] studentsArr = new Student[students.length+1];
+			for (int i=0; i< students.length; i++) {
+				studentsArr[i] = students[i];
+			}
+			this.students = studentsArr;
+
 			int lastIndex = students.length-1;
-			students[lastIndex] = student;
+			students[lastIndex] = student;	
 		}
 	}
 
