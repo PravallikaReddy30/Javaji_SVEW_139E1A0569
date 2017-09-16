@@ -126,7 +126,7 @@ public class StudentGroup implements StudentArrayOperation {
 		}
 		else {
 			
-			Student[] studentsArr = new Student[students.length+1];
+			Student[] studentsArr = new Student[students.length-1];
 			for (int i=0; i< index; i++) {
 				studentsArr[i] = students[i];
 			}
@@ -158,7 +158,7 @@ public class StudentGroup implements StudentArrayOperation {
 			}
 			
 			if (studentFoundIndex != -1) {
-				Student[] studentsArr = new Student[students.length + 1];
+				Student[] studentsArr = new Student[students.length - 1];
 				for (int i = 0; i < studentFoundIndex; i++) {
 					studentsArr[i] = students[i];
 				}
